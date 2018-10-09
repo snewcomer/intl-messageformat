@@ -9,7 +9,7 @@ See the accompanying LICENSE file for terms.
 import {extend, hop} from './utils';
 import {defineProperty, objCreate} from './es5';
 import Compiler from './compiler';
-import parser from 'intl-messageformat-parser';
+import parser from '@ember-intl/intl-messageformat-parser';
 
 export default MessageFormat;
 

@@ -1,5 +1,5 @@
 {
-  "name": "intl-messageformat",
+  "name": "@ember-intl/intl-messageformat",
   "version": "2.2.0",
   "description": "Formats ICU Message strings with number, date, plural, and select placeholders to create localized messages.",
   "keywords": [
@@ -33,7 +33,7 @@
     "./lib/locales.js": false
   },
   "dependencies": {
-    "intl-messageformat-parser": "1.4.0"
+    "@ember-intl/intl-messageformat-parser": "1.4.0"
   },
   "devDependencies": {
     "benchmark": "^1.0.0",
