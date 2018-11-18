@@ -33,9 +33,10 @@
     "./lib/locales.js": false
   },
   "dependencies": {
-    "@ember-intl/intl-messageformat-parser": "1.4.0"
+    "@ember-intl/intl-messageformat-parser": "1.5.0"
   },
   "devDependencies": {
+    "@ember-intl/grunt-extract-cldr-data": "^5.0.0",
     "benchmark": "^1.0.0",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.5",
@@ -49,10 +50,9 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-uglify": "^0.8.0",
-    "grunt-extract-cldr-data": "^3.0.0",
     "grunt-json-remove-fields": "git://github.com/ericf/grunt-json-remove-fields#improve-files-and-output",
     "grunt-saucelabs": "^8.4.1",
-    "intl": "^0.1.4",
+    "intl": "^1.2.5",
     "istanbul": "^0.3.0",
     "mocha": "^2.0.1",
     "xunit-file": "0.0.6"

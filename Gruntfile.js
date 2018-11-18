@@ -237,7 +237,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-benchmark');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-bundle-jsnext-lib');
-    grunt.loadNpmTasks('grunt-extract-cldr-data');
+    grunt.loadNpmTasks('@ember-intl/grunt-extract-cldr-data');
     grunt.loadNpmTasks('grunt-json-remove-fields');
     grunt.loadNpmTasks('grunt-saucelabs');
     grunt.loadNpmTasks('grunt-contrib-connect');
