@@ -1,1 +1,1 @@
-IntlMessageFormat.__addLocaleData({"locale":"or","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"or","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return n==1||n==5||t0&&n>=7&&n<=9?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n==1?"one":"other"}});

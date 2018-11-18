@@ -343,16 +343,18 @@
             peg$c15 = { type: "literal", value: "date", description: "\"date\"" },
             peg$c16 = "time",
             peg$c17 = { type: "literal", value: "time", description: "\"time\"" },
-            peg$c18 = function(type, style) {
+            peg$c18 = "shortNumber",
+            peg$c19 = { type: "literal", value: "shortNumber", description: "\"shortNumber\"" },
+            peg$c20 = function(type, style) {
                     return {
                         type : type + 'Format',
                         style: style && style[2],
                         location: location()
                     };
                 },
-            peg$c19 = "plural",
-            peg$c20 = { type: "literal", value: "plural", description: "\"plural\"" },
-            peg$c21 = function(pluralStyle) {
+            peg$c21 = "plural",
+            peg$c22 = { type: "literal", value: "plural", description: "\"plural\"" },
+            peg$c23 = function(pluralStyle) {
                     return {
                         type   : pluralStyle.type,
                         ordinal: false,
@@ -361,9 +363,9 @@
                         location: location()
                     };
                 },
-            peg$c22 = "selectordinal",
-            peg$c23 = { type: "literal", value: "selectordinal", description: "\"selectordinal\"" },
-            peg$c24 = function(pluralStyle) {
+            peg$c24 = "selectordinal",
+            peg$c25 = { type: "literal", value: "selectordinal", description: "\"selectordinal\"" },
+            peg$c26 = function(pluralStyle) {
                     return {
                         type   : pluralStyle.type,
                         ordinal: true,
@@ -372,18 +374,18 @@
                         location: location()
                     }
                 },
-            peg$c25 = "select",
-            peg$c26 = { type: "literal", value: "select", description: "\"select\"" },
-            peg$c27 = function(options) {
+            peg$c27 = "select",
+            peg$c28 = { type: "literal", value: "select", description: "\"select\"" },
+            peg$c29 = function(options) {
                     return {
                         type   : 'selectFormat',
                         options: options,
                         location: location()
                     };
                 },
-            peg$c28 = "=",
-            peg$c29 = { type: "literal", value: "=", description: "\"=\"" },
-            peg$c30 = function(selector, pattern) {
+            peg$c30 = "=",
+            peg$c31 = { type: "literal", value: "=", description: "\"=\"" },
+            peg$c32 = function(selector, pattern) {
                     return {
                         type    : 'optionalFormatPattern',
                         selector: selector,
@@ -391,12 +393,12 @@
                         location: location()
                     };
                 },
-            peg$c31 = "offset:",
-            peg$c32 = { type: "literal", value: "offset:", description: "\"offset:\"" },
-            peg$c33 = function(number) {
+            peg$c33 = "offset:",
+            peg$c34 = { type: "literal", value: "offset:", description: "\"offset:\"" },
+            peg$c35 = function(number) {
                     return number;
                 },
-            peg$c34 = function(offset, options) {
+            peg$c36 = function(offset, options) {
                     return {
                         type   : 'pluralFormat',
                         offset : offset,
@@ -404,41 +406,41 @@
                         location: location()
                     };
                 },
-            peg$c35 = { type: "other", description: "whitespace" },
-            peg$c36 = /^[ \t\n\r]/,
-            peg$c37 = { type: "class", value: "[ \\t\\n\\r]", description: "[ \\t\\n\\r]" },
-            peg$c38 = { type: "other", description: "optionalWhitespace" },
-            peg$c39 = /^[0-9]/,
-            peg$c40 = { type: "class", value: "[0-9]", description: "[0-9]" },
-            peg$c41 = /^[0-9a-f]/i,
-            peg$c42 = { type: "class", value: "[0-9a-f]i", description: "[0-9a-f]i" },
-            peg$c43 = "0",
-            peg$c44 = { type: "literal", value: "0", description: "\"0\"" },
-            peg$c45 = /^[1-9]/,
-            peg$c46 = { type: "class", value: "[1-9]", description: "[1-9]" },
-            peg$c47 = function(digits) {
+            peg$c37 = { type: "other", description: "whitespace" },
+            peg$c38 = /^[ \t\n\r]/,
+            peg$c39 = { type: "class", value: "[ \\t\\n\\r]", description: "[ \\t\\n\\r]" },
+            peg$c40 = { type: "other", description: "optionalWhitespace" },
+            peg$c41 = /^[0-9]/,
+            peg$c42 = { type: "class", value: "[0-9]", description: "[0-9]" },
+            peg$c43 = /^[0-9a-f]/i,
+            peg$c44 = { type: "class", value: "[0-9a-f]i", description: "[0-9a-f]i" },
+            peg$c45 = "0",
+            peg$c46 = { type: "literal", value: "0", description: "\"0\"" },
+            peg$c47 = /^[1-9]/,
+            peg$c48 = { type: "class", value: "[1-9]", description: "[1-9]" },
+            peg$c49 = function(digits) {
                 return parseInt(digits, 10);
             },
-            peg$c48 = /^[^{}\\\0-\x1F \t\n\r]/,
-            peg$c49 = { type: "class", value: "[^{}\\\\\\0-\\x1F\\x7f \\t\\n\\r]", description: "[^{}\\\\\\0-\\x1F\\x7f \\t\\n\\r]" },
-            peg$c50 = "\\\\",
-            peg$c51 = { type: "literal", value: "\\\\", description: "\"\\\\\\\\\"" },
-            peg$c52 = function() { return '\\'; },
-            peg$c53 = "\\#",
-            peg$c54 = { type: "literal", value: "\\#", description: "\"\\\\#\"" },
-            peg$c55 = function() { return '\\#'; },
-            peg$c56 = "\\{",
-            peg$c57 = { type: "literal", value: "\\{", description: "\"\\\\{\"" },
-            peg$c58 = function() { return '\u007B'; },
-            peg$c59 = "\\}",
-            peg$c60 = { type: "literal", value: "\\}", description: "\"\\\\}\"" },
-            peg$c61 = function() { return '\u007D'; },
-            peg$c62 = "\\u",
-            peg$c63 = { type: "literal", value: "\\u", description: "\"\\\\u\"" },
-            peg$c64 = function(digits) {
+            peg$c50 = /^[^{}\\\0-\x1F \t\n\r]/,
+            peg$c51 = { type: "class", value: "[^{}\\\\\\0-\\x1F\\x7f \\t\\n\\r]", description: "[^{}\\\\\\0-\\x1F\\x7f \\t\\n\\r]" },
+            peg$c52 = "\\\\",
+            peg$c53 = { type: "literal", value: "\\\\", description: "\"\\\\\\\\\"" },
+            peg$c54 = function() { return '\\'; },
+            peg$c55 = "\\#",
+            peg$c56 = { type: "literal", value: "\\#", description: "\"\\\\#\"" },
+            peg$c57 = function() { return '\\#'; },
+            peg$c58 = "\\{",
+            peg$c59 = { type: "literal", value: "\\{", description: "\"\\\\{\"" },
+            peg$c60 = function() { return '\u007B'; },
+            peg$c61 = "\\}",
+            peg$c62 = { type: "literal", value: "\\}", description: "\"\\\\}\"" },
+            peg$c63 = function() { return '\u007D'; },
+            peg$c64 = "\\u",
+            peg$c65 = { type: "literal", value: "\\u", description: "\"\\\\u\"" },
+            peg$c66 = function(digits) {
                     return String.fromCharCode(parseInt(digits, 16));
                 },
-            peg$c65 = function(chars) { return chars.join(''); },
+            peg$c67 = function(chars) { return chars.join(''); },
 
             peg$currPos          = 0,
             peg$savedPos         = 0,
@@ -925,6 +927,15 @@
                 s1 = peg$FAILED;
                 if (peg$silentFails === 0) { peg$fail(peg$c17); }
               }
+              if (s1 === peg$FAILED) {
+                if (input.substr(peg$currPos, 11) === peg$c18) {
+                  s1 = peg$c18;
+                  peg$currPos += 11;
+                } else {
+                  s1 = peg$FAILED;
+                  if (peg$silentFails === 0) { peg$fail(peg$c19); }
+                }
+              }
             }
           }
           if (s1 !== peg$FAILED) {
@@ -962,7 +973,7 @@
               }
               if (s3 !== peg$FAILED) {
                 peg$savedPos = s0;
-                s1 = peg$c18(s1, s3);
+                s1 = peg$c20(s1, s3);
                 s0 = s1;
               } else {
                 peg$currPos = s0;
@@ -984,12 +995,12 @@
           var s0, s1, s2, s3, s4, s5;
 
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 6) === peg$c19) {
-            s1 = peg$c19;
+          if (input.substr(peg$currPos, 6) === peg$c21) {
+            s1 = peg$c21;
             peg$currPos += 6;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c20); }
+            if (peg$silentFails === 0) { peg$fail(peg$c22); }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$parse_();
@@ -1007,7 +1018,7 @@
                   s5 = peg$parsepluralStyle();
                   if (s5 !== peg$FAILED) {
                     peg$savedPos = s0;
-                    s1 = peg$c21(s5);
+                    s1 = peg$c23(s5);
                     s0 = s1;
                   } else {
                     peg$currPos = s0;
@@ -1037,12 +1048,12 @@
           var s0, s1, s2, s3, s4, s5;
 
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 13) === peg$c22) {
-            s1 = peg$c22;
+          if (input.substr(peg$currPos, 13) === peg$c24) {
+            s1 = peg$c24;
             peg$currPos += 13;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c23); }
+            if (peg$silentFails === 0) { peg$fail(peg$c25); }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$parse_();
@@ -1060,7 +1071,7 @@
                   s5 = peg$parsepluralStyle();
                   if (s5 !== peg$FAILED) {
                     peg$savedPos = s0;
-                    s1 = peg$c24(s5);
+                    s1 = peg$c26(s5);
                     s0 = s1;
                   } else {
                     peg$currPos = s0;
@@ -1090,12 +1101,12 @@
           var s0, s1, s2, s3, s4, s5, s6;
 
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 6) === peg$c25) {
-            s1 = peg$c25;
+          if (input.substr(peg$currPos, 6) === peg$c27) {
+            s1 = peg$c27;
             peg$currPos += 6;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c26); }
+            if (peg$silentFails === 0) { peg$fail(peg$c28); }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$parse_();
@@ -1122,7 +1133,7 @@
                   }
                   if (s5 !== peg$FAILED) {
                     peg$savedPos = s0;
-                    s1 = peg$c27(s5);
+                    s1 = peg$c29(s5);
                     s0 = s1;
                   } else {
                     peg$currPos = s0;
@@ -1154,11 +1165,11 @@
           s0 = peg$currPos;
           s1 = peg$currPos;
           if (input.charCodeAt(peg$currPos) === 61) {
-            s2 = peg$c28;
+            s2 = peg$c30;
             peg$currPos++;
           } else {
             s2 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c29); }
+            if (peg$silentFails === 0) { peg$fail(peg$c31); }
           }
           if (s2 !== peg$FAILED) {
             s3 = peg$parsenumber();
@@ -1218,7 +1229,7 @@
                         }
                         if (s8 !== peg$FAILED) {
                           peg$savedPos = s0;
-                          s1 = peg$c30(s2, s6);
+                          s1 = peg$c32(s2, s6);
                           s0 = s1;
                         } else {
                           peg$currPos = s0;
@@ -1260,12 +1271,12 @@
           var s0, s1, s2, s3;
 
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 7) === peg$c31) {
-            s1 = peg$c31;
+          if (input.substr(peg$currPos, 7) === peg$c33) {
+            s1 = peg$c33;
             peg$currPos += 7;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c32); }
+            if (peg$silentFails === 0) { peg$fail(peg$c34); }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$parse_();
@@ -1273,7 +1284,7 @@
               s3 = peg$parsenumber();
               if (s3 !== peg$FAILED) {
                 peg$savedPos = s0;
-                s1 = peg$c33(s3);
+                s1 = peg$c35(s3);
                 s0 = s1;
               } else {
                 peg$currPos = s0;
@@ -1314,7 +1325,7 @@
               }
               if (s3 !== peg$FAILED) {
                 peg$savedPos = s0;
-                s1 = peg$c34(s1, s3);
+                s1 = peg$c36(s1, s3);
                 s0 = s1;
               } else {
                 peg$currPos = s0;
@@ -1337,22 +1348,22 @@
 
           peg$silentFails++;
           s0 = [];
-          if (peg$c36.test(input.charAt(peg$currPos))) {
+          if (peg$c38.test(input.charAt(peg$currPos))) {
             s1 = input.charAt(peg$currPos);
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c37); }
+            if (peg$silentFails === 0) { peg$fail(peg$c39); }
           }
           if (s1 !== peg$FAILED) {
             while (s1 !== peg$FAILED) {
               s0.push(s1);
-              if (peg$c36.test(input.charAt(peg$currPos))) {
+              if (peg$c38.test(input.charAt(peg$currPos))) {
                 s1 = input.charAt(peg$currPos);
                 peg$currPos++;
               } else {
                 s1 = peg$FAILED;
-                if (peg$silentFails === 0) { peg$fail(peg$c37); }
+                if (peg$silentFails === 0) { peg$fail(peg$c39); }
               }
             }
           } else {
@@ -1361,7 +1372,7 @@
           peg$silentFails--;
           if (s0 === peg$FAILED) {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c35); }
+            if (peg$silentFails === 0) { peg$fail(peg$c37); }
           }
 
           return s0;
@@ -1386,27 +1397,13 @@
           peg$silentFails--;
           if (s0 === peg$FAILED) {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c38); }
-          }
-
-          return s0;
-        }
-
-        function peg$parsedigit() {
-          var s0;
-
-          if (peg$c39.test(input.charAt(peg$currPos))) {
-            s0 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
             if (peg$silentFails === 0) { peg$fail(peg$c40); }
           }
 
           return s0;
         }
 
-        function peg$parsehexDigit() {
+        function peg$parsedigit() {
           var s0;
 
           if (peg$c41.test(input.charAt(peg$currPos))) {
@@ -1420,26 +1417,40 @@
           return s0;
         }
 
+        function peg$parsehexDigit() {
+          var s0;
+
+          if (peg$c43.test(input.charAt(peg$currPos))) {
+            s0 = input.charAt(peg$currPos);
+            peg$currPos++;
+          } else {
+            s0 = peg$FAILED;
+            if (peg$silentFails === 0) { peg$fail(peg$c44); }
+          }
+
+          return s0;
+        }
+
         function peg$parsenumber() {
           var s0, s1, s2, s3, s4, s5;
 
           s0 = peg$currPos;
           if (input.charCodeAt(peg$currPos) === 48) {
-            s1 = peg$c43;
+            s1 = peg$c45;
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c44); }
+            if (peg$silentFails === 0) { peg$fail(peg$c46); }
           }
           if (s1 === peg$FAILED) {
             s1 = peg$currPos;
             s2 = peg$currPos;
-            if (peg$c45.test(input.charAt(peg$currPos))) {
+            if (peg$c47.test(input.charAt(peg$currPos))) {
               s3 = input.charAt(peg$currPos);
               peg$currPos++;
             } else {
               s3 = peg$FAILED;
-              if (peg$silentFails === 0) { peg$fail(peg$c46); }
+              if (peg$silentFails === 0) { peg$fail(peg$c48); }
             }
             if (s3 !== peg$FAILED) {
               s4 = [];
@@ -1467,7 +1478,7 @@
           }
           if (s1 !== peg$FAILED) {
             peg$savedPos = s0;
-            s1 = peg$c47(s1);
+            s1 = peg$c49(s1);
           }
           s0 = s1;
 
@@ -1477,77 +1488,77 @@
         function peg$parsechar() {
           var s0, s1, s2, s3, s4, s5, s6, s7;
 
-          if (peg$c48.test(input.charAt(peg$currPos))) {
+          if (peg$c50.test(input.charAt(peg$currPos))) {
             s0 = input.charAt(peg$currPos);
             peg$currPos++;
           } else {
             s0 = peg$FAILED;
-            if (peg$silentFails === 0) { peg$fail(peg$c49); }
+            if (peg$silentFails === 0) { peg$fail(peg$c51); }
           }
           if (s0 === peg$FAILED) {
             s0 = peg$currPos;
-            if (input.substr(peg$currPos, 2) === peg$c50) {
-              s1 = peg$c50;
+            if (input.substr(peg$currPos, 2) === peg$c52) {
+              s1 = peg$c52;
               peg$currPos += 2;
             } else {
               s1 = peg$FAILED;
-              if (peg$silentFails === 0) { peg$fail(peg$c51); }
+              if (peg$silentFails === 0) { peg$fail(peg$c53); }
             }
             if (s1 !== peg$FAILED) {
               peg$savedPos = s0;
-              s1 = peg$c52();
+              s1 = peg$c54();
             }
             s0 = s1;
             if (s0 === peg$FAILED) {
               s0 = peg$currPos;
-              if (input.substr(peg$currPos, 2) === peg$c53) {
-                s1 = peg$c53;
+              if (input.substr(peg$currPos, 2) === peg$c55) {
+                s1 = peg$c55;
                 peg$currPos += 2;
               } else {
                 s1 = peg$FAILED;
-                if (peg$silentFails === 0) { peg$fail(peg$c54); }
+                if (peg$silentFails === 0) { peg$fail(peg$c56); }
               }
               if (s1 !== peg$FAILED) {
                 peg$savedPos = s0;
-                s1 = peg$c55();
+                s1 = peg$c57();
               }
               s0 = s1;
               if (s0 === peg$FAILED) {
                 s0 = peg$currPos;
-                if (input.substr(peg$currPos, 2) === peg$c56) {
-                  s1 = peg$c56;
+                if (input.substr(peg$currPos, 2) === peg$c58) {
+                  s1 = peg$c58;
                   peg$currPos += 2;
                 } else {
                   s1 = peg$FAILED;
-                  if (peg$silentFails === 0) { peg$fail(peg$c57); }
+                  if (peg$silentFails === 0) { peg$fail(peg$c59); }
                 }
                 if (s1 !== peg$FAILED) {
                   peg$savedPos = s0;
-                  s1 = peg$c58();
+                  s1 = peg$c60();
                 }
                 s0 = s1;
                 if (s0 === peg$FAILED) {
                   s0 = peg$currPos;
-                  if (input.substr(peg$currPos, 2) === peg$c59) {
-                    s1 = peg$c59;
+                  if (input.substr(peg$currPos, 2) === peg$c61) {
+                    s1 = peg$c61;
                     peg$currPos += 2;
                   } else {
                     s1 = peg$FAILED;
-                    if (peg$silentFails === 0) { peg$fail(peg$c60); }
+                    if (peg$silentFails === 0) { peg$fail(peg$c62); }
                   }
                   if (s1 !== peg$FAILED) {
                     peg$savedPos = s0;
-                    s1 = peg$c61();
+                    s1 = peg$c63();
                   }
                   s0 = s1;
                   if (s0 === peg$FAILED) {
                     s0 = peg$currPos;
-                    if (input.substr(peg$currPos, 2) === peg$c62) {
-                      s1 = peg$c62;
+                    if (input.substr(peg$currPos, 2) === peg$c64) {
+                      s1 = peg$c64;
                       peg$currPos += 2;
                     } else {
                       s1 = peg$FAILED;
-                      if (peg$silentFails === 0) { peg$fail(peg$c63); }
+                      if (peg$silentFails === 0) { peg$fail(peg$c65); }
                     }
                     if (s1 !== peg$FAILED) {
                       s2 = peg$currPos;
@@ -1585,7 +1596,7 @@
                       }
                       if (s2 !== peg$FAILED) {
                         peg$savedPos = s0;
-                        s1 = peg$c64(s2);
+                        s1 = peg$c66(s2);
                         s0 = s1;
                       } else {
                         peg$currPos = s0;
@@ -1620,7 +1631,7 @@
           }
           if (s1 !== peg$FAILED) {
             peg$savedPos = s0;
-            s1 = peg$c65(s1);
+            s1 = peg$c67(s1);
           }
           s0 = s1;
 
@@ -1918,7 +1929,7 @@
             locales.join(', ') + ', or the default locale: ' + defaultLocale
         );
     };
-    var $$en$$default = {"locale":"en","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n10==1&&n100!=11?"one":n10==2&&n100!=12?"two":n10==3&&n100!=13?"few":"other";return n==1&&v0?"one":"other"}};
+    var $$en$$default = {"locale":"en","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n10==1&&n100!=11?"one":n10==2&&n100!=12?"two":n10==3&&n100!=13?"few":"other";return n==1&&v0?"one":"other"}};
 
     $$core$$default.__addLocaleData($$en$$default);
     $$core$$default.defaultLocale = 'en';
@@ -1927,17 +1938,16 @@
     this['IntlMessageFormat'] = src$main$$default;
 }).call(this);
 
-//
-IntlMessageFormat.__addLocaleData({"locale":"af","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"af","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"af-NA","parentLocale":"af"});
 
-IntlMessageFormat.__addLocaleData({"locale":"agq","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"agq","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ak","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ak","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"am","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"am","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ar","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return"other";return n==0?"zero":n==1?"one":n==2?"two":n100>=3&&n100<=10?"few":n100>=11&&n100<=99?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ar","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return"other";return n==0?"zero":n==1?"one":n==2?"two":n100>=3&&n100<=10?"few":n100>=11&&n100<=99?"many":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ar-AE","parentLocale":"ar"});
 IntlMessageFormat.__addLocaleData({"locale":"ar-BH","parentLocale":"ar"});
 IntlMessageFormat.__addLocaleData({"locale":"ar-DJ","parentLocale":"ar"});
@@ -1966,101 +1976,107 @@ IntlMessageFormat.__addLocaleData({"locale":"ar-TD","parentLocale":"ar"});
 IntlMessageFormat.__addLocaleData({"locale":"ar-TN","parentLocale":"ar"});
 IntlMessageFormat.__addLocaleData({"locale":"ar-YE","parentLocale":"ar"});
 
-IntlMessageFormat.__addLocaleData({"locale":"as","pluralRuleFunction":function(n,ord){if(ord)return n==1||n==5||n==7||n==8||n==9||n==10?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ars","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return"other";return n==0?"zero":n==1?"one":n==2?"two":n100>=3&&n100<=10?"few":n100>=11&&n100<=99?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"asa","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"as","pluralRuleFunction":function (n,ord){if(ord)return n==1||n==5||n==7||n==8||n==9||n==10?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ast","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"asa","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"az","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],i10=i.slice(-1),i100=i.slice(-2),i1000=i.slice(-3);if(ord)return i10==1||i10==2||i10==5||i10==7||i10==8||(i100==20||i100==50||i100==70||i100==80)?"one":i10==3||i10==4||(i1000==100||i1000==200||i1000==300||i1000==400||i1000==500||i1000==600||i1000==700||i1000==800||i1000==900)?"few":i==0||i10==6||(i100==40||i100==60||i100==90)?"many":"other";return n==1?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"az-Arab","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"az-Cyrl","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ast","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"az","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],i10=i.slice(-1),i100=i.slice(-2),i1000=i.slice(-3);if(ord)return i10==1||i10==2||i10==5||i10==7||i10==8||(i100==20||i100==50||i100==70||i100==80)?"one":i10==3||i10==4||(i1000==100||i1000==200||i1000==300||i1000==400||i1000==500||i1000==600||i1000==700||i1000==800||i1000==900)?"few":i==0||i10==6||(i100==40||i100==60||i100==90)?"many":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"az-Arab","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"az-Cyrl","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"az-Latn","parentLocale":"az"});
 
-IntlMessageFormat.__addLocaleData({"locale":"bas","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bas","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"be","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return(n10==2||n10==3)&&n100!=12&&n100!=13?"few":"other";return n10==1&&n100!=11?"one":n10>=2&&n10<=4&&(n100<12||n100>14)?"few":t0&&n10==0||n10>=5&&n10<=9||n100>=11&&n100<=14?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"be","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return(n10==2||n10==3)&&n100!=12&&n100!=13?"few":"other";return n10==1&&n100!=11?"one":n10>=2&&n10<=4&&(n100<12||n100>14)?"few":t0&&n10==0||n10>=5&&n10<=9||n100>=11&&n100<=14?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bem","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bem","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bez","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bez","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bg","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bg","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bm","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"bm-Nkoo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bm","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bm-Nkoo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bn","pluralRuleFunction":function(n,ord){if(ord)return n==1||n==5||n==7||n==8||n==9||n==10?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bn","pluralRuleFunction":function (n,ord){if(ord)return n==1||n==5||n==7||n==8||n==9||n==10?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"bn-IN","parentLocale":"bn"});
 
-IntlMessageFormat.__addLocaleData({"locale":"bo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"bo-IN","parentLocale":"bo"});
 
-IntlMessageFormat.__addLocaleData({"locale":"br","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),n1000000=t0&&s[0].slice(-6);if(ord)return"other";return n10==1&&n100!=11&&n100!=71&&n100!=91?"one":n10==2&&n100!=12&&n100!=72&&n100!=92?"two":(n10==3||n10==4||n10==9)&&(n100<10||n100>19)&&(n100<70||n100>79)&&(n100<90||n100>99)?"few":n!=0&&t0&&n1000000==0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"br","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),n1000000=t0&&s[0].slice(-6);if(ord)return"other";return n10==1&&n100!=11&&n100!=71&&n100!=91?"one":n10==2&&n100!=12&&n100!=72&&n100!=92?"two":(n10==3||n10==4||n10==9)&&(n100<10||n100>19)&&(n100<70||n100>79)&&(n100<90||n100>99)?"few":n!=0&&t0&&n1000000==0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"brx","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"brx","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"bs","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"bs-Cyrl","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bs","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"bs-Cyrl","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"bs-Latn","parentLocale":"bs"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ca","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==1||n==3?"one":n==2?"two":n==4?"few":"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ca","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==1||n==3?"one":n==2?"two":n==4?"few":"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ca-AD","parentLocale":"ca"});
 IntlMessageFormat.__addLocaleData({"locale":"ca-ES-VALENCIA","parentLocale":"ca-ES"});
 IntlMessageFormat.__addLocaleData({"locale":"ca-ES","parentLocale":"ca"});
 IntlMessageFormat.__addLocaleData({"locale":"ca-FR","parentLocale":"ca"});
 IntlMessageFormat.__addLocaleData({"locale":"ca-IT","parentLocale":"ca"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ce","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ccp","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ccp-IN","parentLocale":"ccp"});
 
-IntlMessageFormat.__addLocaleData({"locale":"cgg","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ce","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"chr","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"cgg","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ckb","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"chr","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"ckb","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ckb-IR","parentLocale":"ckb"});
 
-IntlMessageFormat.__addLocaleData({"locale":"cs","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1];if(ord)return"other";return n==1&&v0?"one":i>=2&&i<=4&&v0?"few":!v0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"cs","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1];if(ord)return"other";return n==1&&v0?"one":i>=2&&i<=4&&v0?"few":!v0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"cu","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"cu","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"cy","pluralRuleFunction":function(n,ord){if(ord)return n==0||n==7||n==8||n==9?"zero":n==1?"one":n==2?"two":n==3||n==4?"few":n==5||n==6?"many":"other";return n==0?"zero":n==1?"one":n==2?"two":n==3?"few":n==6?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"cy","pluralRuleFunction":function (n,ord){if(ord)return n==0||n==7||n==8||n==9?"zero":n==1?"one":n==2?"two":n==3||n==4?"few":n==5||n==6?"many":"other";return n==0?"zero":n==1?"one":n==2?"two":n==3?"few":n==6?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"da","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],t0=Number(s[0])==n;if(ord)return"other";return n==1||!t0&&(i==0||i==1)?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"da","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],t0=Number(s[0])==n;if(ord)return"other";return n==1||!t0&&(i==0||i==1)?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"da-GL","parentLocale":"da"});
 
-IntlMessageFormat.__addLocaleData({"locale":"dav","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dav","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"de","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"de","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"de-AT","parentLocale":"de"});
 IntlMessageFormat.__addLocaleData({"locale":"de-BE","parentLocale":"de"});
 IntlMessageFormat.__addLocaleData({"locale":"de-CH","parentLocale":"de"});
+IntlMessageFormat.__addLocaleData({"locale":"de-IT","parentLocale":"de"});
 IntlMessageFormat.__addLocaleData({"locale":"de-LI","parentLocale":"de"});
 IntlMessageFormat.__addLocaleData({"locale":"de-LU","parentLocale":"de"});
 
-IntlMessageFormat.__addLocaleData({"locale":"dje","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dje","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"dsb","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i100=i.slice(-2),f100=f.slice(-2);if(ord)return"other";return v0&&i100==1||f100==1?"one":v0&&i100==2||f100==2?"two":v0&&(i100==3||i100==4)||(f100==3||f100==4)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dsb","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i100=i.slice(-2),f100=f.slice(-2);if(ord)return"other";return v0&&i100==1||f100==1?"one":v0&&i100==2||f100==2?"two":v0&&(i100==3||i100==4)||(f100==3||f100==4)?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"dua","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dua","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"dv","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dv","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"dyo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dyo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"dz","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"dz","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ebu","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ebu","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ee","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ee","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ee-TG","parentLocale":"ee"});
 
-IntlMessageFormat.__addLocaleData({"locale":"el","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"el","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"el-CY","parentLocale":"el"});
 
-IntlMessageFormat.__addLocaleData({"locale":"en","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n10==1&&n100!=11?"one":n10==2&&n100!=12?"two":n10==3&&n100!=13?"few":"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"en","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n10==1&&n100!=11?"one":n10==2&&n100!=12?"two":n10==3&&n100!=13?"few":"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"en-001","parentLocale":"en"});
 IntlMessageFormat.__addLocaleData({"locale":"en-150","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-AG","parentLocale":"en-001"});
@@ -2086,7 +2102,7 @@ IntlMessageFormat.__addLocaleData({"locale":"en-DE","parentLocale":"en-150"});
 IntlMessageFormat.__addLocaleData({"locale":"en-DG","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-DK","parentLocale":"en-150"});
 IntlMessageFormat.__addLocaleData({"locale":"en-DM","parentLocale":"en-001"});
-IntlMessageFormat.__addLocaleData({"locale":"en-Dsrt","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"en-Dsrt","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"en-ER","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-FI","parentLocale":"en-150"});
 IntlMessageFormat.__addLocaleData({"locale":"en-FJ","parentLocale":"en-001"});
@@ -2149,7 +2165,7 @@ IntlMessageFormat.__addLocaleData({"locale":"en-SL","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-SS","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-SX","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-SZ","parentLocale":"en-001"});
-IntlMessageFormat.__addLocaleData({"locale":"en-Shaw","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"en-Shaw","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"en-TC","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-TK","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-TO","parentLocale":"en-001"});
@@ -2168,12 +2184,14 @@ IntlMessageFormat.__addLocaleData({"locale":"en-ZA","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-ZM","parentLocale":"en-001"});
 IntlMessageFormat.__addLocaleData({"locale":"en-ZW","parentLocale":"en-001"});
 
-IntlMessageFormat.__addLocaleData({"locale":"eo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"eo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"es","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"es","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"es-419","parentLocale":"es"});
 IntlMessageFormat.__addLocaleData({"locale":"es-AR","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-BO","parentLocale":"es-419"});
+IntlMessageFormat.__addLocaleData({"locale":"es-BR","parentLocale":"es-419"});
+IntlMessageFormat.__addLocaleData({"locale":"es-BZ","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-CL","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-CO","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-CR","parentLocale":"es-419"});
@@ -2197,28 +2215,38 @@ IntlMessageFormat.__addLocaleData({"locale":"es-US","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-UY","parentLocale":"es-419"});
 IntlMessageFormat.__addLocaleData({"locale":"es-VE","parentLocale":"es-419"});
 
-IntlMessageFormat.__addLocaleData({"locale":"et","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"et","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"eu","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"eu","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ewo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ewo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"fa","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fa","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"fa-AF","parentLocale":"fa"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ff","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<2?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"ff-CM","parentLocale":"ff"});
-IntlMessageFormat.__addLocaleData({"locale":"ff-GN","parentLocale":"ff"});
-IntlMessageFormat.__addLocaleData({"locale":"ff-MR","parentLocale":"ff"});
+IntlMessageFormat.__addLocaleData({"locale":"ff","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<2?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Adlm","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn","parentLocale":"ff"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-BF","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-CM","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-GH","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-GM","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-GN","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-GW","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-LR","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-MR","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-NE","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-NG","parentLocale":"ff-Latn"});
+IntlMessageFormat.__addLocaleData({"locale":"ff-Latn-SL","parentLocale":"ff-Latn"});
 
-IntlMessageFormat.__addLocaleData({"locale":"fi","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fi","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"fil","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),f10=f.slice(-1);if(ord)return n==1?"one":"other";return v0&&(i==1||i==2||i==3)||v0&&i10!=4&&i10!=6&&i10!=9||!v0&&f10!=4&&f10!=6&&f10!=9?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fil","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),f10=f.slice(-1);if(ord)return n==1?"one":"other";return v0&&(i==1||i==2||i==3)||v0&&i10!=4&&i10!=6&&i10!=9||!v0&&f10!=4&&f10!=6&&f10!=9?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"fo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"fo-DK","parentLocale":"fo"});
 
-IntlMessageFormat.__addLocaleData({"locale":"fr","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fr","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"fr-BE","parentLocale":"fr"});
 IntlMessageFormat.__addLocaleData({"locale":"fr-BF","parentLocale":"fr"});
 IntlMessageFormat.__addLocaleData({"locale":"fr-BI","parentLocale":"fr"});
@@ -2265,208 +2293,218 @@ IntlMessageFormat.__addLocaleData({"locale":"fr-VU","parentLocale":"fr"});
 IntlMessageFormat.__addLocaleData({"locale":"fr-WF","parentLocale":"fr"});
 IntlMessageFormat.__addLocaleData({"locale":"fr-YT","parentLocale":"fr"});
 
-IntlMessageFormat.__addLocaleData({"locale":"fur","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fur","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"fy","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"fy","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ga","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return n==1?"one":"other";return n==1?"one":n==2?"two":t0&&n>=3&&n<=6?"few":t0&&n>=7&&n<=10?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ga","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return n==1?"one":"other";return n==1?"one":n==2?"two":t0&&n>=3&&n<=6?"few":t0&&n>=7&&n<=10?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"gd","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return n==1||n==11?"one":n==2||n==12?"two":t0&&n>=3&&n<=10||t0&&n>=13&&n<=19?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"gd","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return n==1||n==11?"one":n==2||n==12?"two":n==3||n==13?"few":"other";return n==1||n==11?"one":n==2||n==12?"two":t0&&n>=3&&n<=10||t0&&n>=13&&n<=19?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"gl","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"gl","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"gsw","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"gsw","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"gsw-FR","parentLocale":"gsw"});
 IntlMessageFormat.__addLocaleData({"locale":"gsw-LI","parentLocale":"gsw"});
 
-IntlMessageFormat.__addLocaleData({"locale":"gu","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"gu","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"guw","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"guw","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"guz","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"guz","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"gv","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return v0&&i10==1?"one":v0&&i10==2?"two":v0&&(i100==0||i100==20||i100==40||i100==60||i100==80)?"few":!v0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"gv","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return v0&&i10==1?"one":v0&&i10==2?"two":v0&&(i100==0||i100==20||i100==40||i100==60||i100==80)?"few":!v0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ha","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"ha-Arab","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ha","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ha-Arab","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ha-GH","parentLocale":"ha"});
 IntlMessageFormat.__addLocaleData({"locale":"ha-NE","parentLocale":"ha"});
 
-IntlMessageFormat.__addLocaleData({"locale":"haw","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"haw","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"he","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return"other";return n==1&&v0?"one":i==2&&v0?"two":v0&&(n<0||n>10)&&t0&&n10==0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"he","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return"other";return n==1&&v0?"one":i==2&&v0?"two":v0&&(n<0||n>10)&&t0&&n10==0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"hi","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"hi","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n>=0&&n<=1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"hr","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"hr","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"hr-BA","parentLocale":"hr"});
 
-IntlMessageFormat.__addLocaleData({"locale":"hsb","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i100=i.slice(-2),f100=f.slice(-2);if(ord)return"other";return v0&&i100==1||f100==1?"one":v0&&i100==2||f100==2?"two":v0&&(i100==3||i100==4)||(f100==3||f100==4)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"hsb","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i100=i.slice(-2),f100=f.slice(-2);if(ord)return"other";return v0&&i100==1||f100==1?"one":v0&&i100==2||f100==2?"two":v0&&(i100==3||i100==4)||(f100==3||f100==4)?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"hu","pluralRuleFunction":function(n,ord){if(ord)return n==1||n==5?"one":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"hu","pluralRuleFunction":function (n,ord){if(ord)return n==1||n==5?"one":"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"hy","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"hy","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"id","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ia","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ig","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"id","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ii","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ig","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"in","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ii","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"is","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],t0=Number(s[0])==n,i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return t0&&i10==1&&i100!=11||!t0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"in","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"it","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==11||n==8||n==80||n==800?"many":"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"io","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"is","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],t0=Number(s[0])==n,i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return t0&&i10==1&&i100!=11||!t0?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"it","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==11||n==8||n==80||n==800?"many":"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"it-CH","parentLocale":"it"});
 IntlMessageFormat.__addLocaleData({"locale":"it-SM","parentLocale":"it"});
+IntlMessageFormat.__addLocaleData({"locale":"it-VA","parentLocale":"it"});
 
-IntlMessageFormat.__addLocaleData({"locale":"iu","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"iu-Latn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"iu","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"iu-Latn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"iw","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return"other";return n==1&&v0?"one":i==2&&v0?"two":v0&&(n<0||n>10)&&t0&&n10==0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"iw","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return"other";return n==1&&v0?"one":i==2&&v0?"two":v0&&(n<0||n>10)&&t0&&n10==0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ja","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ja","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"jbo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"jbo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"jgo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"jgo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ji","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ji","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"jmc","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"jmc","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"jv","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"jv","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"jw","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"jw","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ka","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],i100=i.slice(-2);if(ord)return i==1?"one":i==0||(i100>=2&&i100<=20||i100==40||i100==60||i100==80)?"many":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ka","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],i100=i.slice(-2);if(ord)return i==1?"one":i==0||(i100>=2&&i100<=20||i100==40||i100==60||i100==80)?"many":"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kab","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<2?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kab","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<2?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kaj","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kaj","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kam","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kam","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kcg","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kcg","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kde","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kde","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kea","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kea","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"khq","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"khq","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ki","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ki","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kk","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return n10==6||n10==9||t0&&n10==0&&n!=0?"many":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return n10==6||n10==9||t0&&n10==0&&n!=0?"many":"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kkj","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kkj","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kl","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kl","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kln","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kln","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"km","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"km","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ko","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ko","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ko-KP","parentLocale":"ko"});
 
-IntlMessageFormat.__addLocaleData({"locale":"kok","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kok","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ks","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ks","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ksb","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ksb","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ksf","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ksf","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ksh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0?"zero":n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ksh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0?"zero":n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ku","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ku","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"kw","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"kw","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ky","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ky","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lag","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0];if(ord)return"other";return n==0?"zero":(i==0||i==1)&&n!=0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lag","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0];if(ord)return"other";return n==0?"zero":(i==0||i==1)&&n!=0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lb","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lb","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lg","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lg","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lkt","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lkt","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ln","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ln","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ln-AO","parentLocale":"ln"});
 IntlMessageFormat.__addLocaleData({"locale":"ln-CF","parentLocale":"ln"});
 IntlMessageFormat.__addLocaleData({"locale":"ln-CG","parentLocale":"ln"});
 
-IntlMessageFormat.__addLocaleData({"locale":"lo","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lo","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lrc","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lrc","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"lrc-IQ","parentLocale":"lrc"});
 
-IntlMessageFormat.__addLocaleData({"locale":"lt","pluralRuleFunction":function(n,ord){var s=String(n).split("."),f=s[1]||"",t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return"other";return n10==1&&(n100<11||n100>19)?"one":n10>=2&&n10<=9&&(n100<11||n100>19)?"few":f!=0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lt","pluralRuleFunction":function (n,ord){var s=String(n).split("."),f=s[1]||"",t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return"other";return n10==1&&(n100<11||n100>19)?"one":n10>=2&&n10<=9&&(n100<11||n100>19)?"few":f!=0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lu","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lu","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"luo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"luo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"luy","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"luy","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"lv","pluralRuleFunction":function(n,ord){var s=String(n).split("."),f=s[1]||"",v=f.length,t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),f100=f.slice(-2),f10=f.slice(-1);if(ord)return"other";return t0&&n10==0||n100>=11&&n100<=19||v==2&&(f100>=11&&f100<=19)?"zero":n10==1&&n100!=11||v==2&&f10==1&&f100!=11||v!=2&&f10==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"lv","pluralRuleFunction":function (n,ord){var s=String(n).split("."),f=s[1]||"",v=f.length,t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),f100=f.slice(-2),f10=f.slice(-1);if(ord)return"other";return t0&&n10==0||n100>=11&&n100<=19||v==2&&(f100>=11&&f100<=19)?"zero":n10==1&&n100!=11||v==2&&f10==1&&f100!=11||v!=2&&f10==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mas","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mas","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"mas-TZ","parentLocale":"mas"});
 
-IntlMessageFormat.__addLocaleData({"locale":"mer","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mer","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mfe","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mfe","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mg","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mg","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mgh","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mgh","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mgo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mgo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mk","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1);if(ord)return i10==1&&i100!=11?"one":i10==2&&i100!=12?"two":(i10==7||i10==8)&&i100!=17&&i100!=18?"many":"other";return v0&&i10==1||f10==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mi","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ml","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return i10==1&&i100!=11?"one":i10==2&&i100!=12?"two":(i10==7||i10==8)&&i100!=17&&i100!=18?"many":"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"mn-Mong","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ml","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mo","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":"other";return n==1&&v0?"one":!v0||n==0||n!=1&&(n100>=1&&n100<=19)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mn-Mong","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mr","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mo","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":"other";return n==1&&v0?"one":!v0||n==0||n!=1&&(n100>=1&&n100<=19)?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ms","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":"other";return"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"ms-Arab","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mr","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":n==2||n==3?"two":n==4?"few":"other";return n>=0&&n<=1?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"ms","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ms-Arab","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ms-BN","parentLocale":"ms"});
 IntlMessageFormat.__addLocaleData({"locale":"ms-SG","parentLocale":"ms"});
 
-IntlMessageFormat.__addLocaleData({"locale":"mt","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return"other";return n==1?"one":n==0||n100>=2&&n100<=10?"few":n100>=11&&n100<=19?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mt","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return"other";return n==1?"one":n==0||n100>=2&&n100<=10?"few":n100>=11&&n100<=19?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mua","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mua","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"my","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"my","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"mzn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"mzn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nah","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nah","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"naq","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"naq","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nb","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nb","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"nb-SJ","parentLocale":"nb"});
 
-IntlMessageFormat.__addLocaleData({"locale":"nd","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nd","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ne","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return t0&&n>=1&&n<=4?"one":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nds","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nds-NL","parentLocale":"nds"});
+
+IntlMessageFormat.__addLocaleData({"locale":"ne","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return t0&&n>=1&&n<=4?"one":"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ne-IN","parentLocale":"ne"});
 
-IntlMessageFormat.__addLocaleData({"locale":"nl","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nl","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"nl-AW","parentLocale":"nl"});
 IntlMessageFormat.__addLocaleData({"locale":"nl-BE","parentLocale":"nl"});
 IntlMessageFormat.__addLocaleData({"locale":"nl-BQ","parentLocale":"nl"});
@@ -2474,244 +2512,261 @@ IntlMessageFormat.__addLocaleData({"locale":"nl-CW","parentLocale":"nl"});
 IntlMessageFormat.__addLocaleData({"locale":"nl-SR","parentLocale":"nl"});
 IntlMessageFormat.__addLocaleData({"locale":"nl-SX","parentLocale":"nl"});
 
-IntlMessageFormat.__addLocaleData({"locale":"nmg","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nmg","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nnh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nnh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"no","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"no","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nqo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nqo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nr","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nr","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nso","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nso","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nus","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nus","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ny","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ny","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"nyn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"nyn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"om","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"om","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"om-KE","parentLocale":"om"});
 
-IntlMessageFormat.__addLocaleData({"locale":"or","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"or","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return n==1||n==5||t0&&n>=7&&n<=9?"one":n==2||n==3?"two":n==4?"few":n==6?"many":"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"os","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"os","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"os-RU","parentLocale":"os"});
 
-IntlMessageFormat.__addLocaleData({"locale":"pa","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"pa-Arab","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pa","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pa-Arab","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"pa-Guru","parentLocale":"pa"});
 
-IntlMessageFormat.__addLocaleData({"locale":"pap","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pap","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"pl","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return n==1&&v0?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i!=1&&(i10==0||i10==1)||v0&&(i10>=5&&i10<=9)||v0&&(i100>=12&&i100<=14)?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pl","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return n==1&&v0?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i!=1&&(i10==0||i10==1)||v0&&(i10>=5&&i10<=9)||v0&&(i100>=12&&i100<=14)?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"prg","pluralRuleFunction":function(n,ord){var s=String(n).split("."),f=s[1]||"",v=f.length,t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),f100=f.slice(-2),f10=f.slice(-1);if(ord)return"other";return t0&&n10==0||n100>=11&&n100<=19||v==2&&(f100>=11&&f100<=19)?"zero":n10==1&&n100!=11||v==2&&f10==1&&f100!=11||v!=2&&f10==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"prg","pluralRuleFunction":function (n,ord){var s=String(n).split("."),f=s[1]||"",v=f.length,t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),f100=f.slice(-2),f10=f.slice(-1);if(ord)return"other";return t0&&n10==0||n100>=11&&n100<=19||v==2&&(f100>=11&&f100<=19)?"zero":n10==1&&n100!=11||v==2&&f10==1&&f100!=11||v!=2&&f10==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ps","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ps","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"pt","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return t0&&n>=0&&n<=2&&n!=2?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pt","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0];if(ord)return"other";return i==0||i==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"pt-AO","parentLocale":"pt-PT"});
-IntlMessageFormat.__addLocaleData({"locale":"pt-PT","parentLocale":"pt","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pt-PT","parentLocale":"pt","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"pt-CH","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-CV","parentLocale":"pt-PT"});
+IntlMessageFormat.__addLocaleData({"locale":"pt-GQ","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-GW","parentLocale":"pt-PT"});
+IntlMessageFormat.__addLocaleData({"locale":"pt-LU","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-MO","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-MZ","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-ST","parentLocale":"pt-PT"});
 IntlMessageFormat.__addLocaleData({"locale":"pt-TL","parentLocale":"pt-PT"});
 
-IntlMessageFormat.__addLocaleData({"locale":"qu","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"qu","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"qu-BO","parentLocale":"qu"});
 IntlMessageFormat.__addLocaleData({"locale":"qu-EC","parentLocale":"qu"});
 
-IntlMessageFormat.__addLocaleData({"locale":"rm","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"rm","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"rn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"rn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ro","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":"other";return n==1&&v0?"one":!v0||n==0||n!=1&&(n100>=1&&n100<=19)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ro","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":"other";return n==1&&v0?"one":!v0||n==0||n!=1&&(n100>=1&&n100<=19)?"few":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ro-MD","parentLocale":"ro"});
 
-IntlMessageFormat.__addLocaleData({"locale":"rof","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"rof","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ru","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i10==0||v0&&(i10>=5&&i10<=9)||v0&&(i100>=11&&i100<=14)?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ru","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i10=i.slice(-1),i100=i.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i10==0||v0&&(i10>=5&&i10<=9)||v0&&(i100>=11&&i100<=14)?"many":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ru-BY","parentLocale":"ru"});
 IntlMessageFormat.__addLocaleData({"locale":"ru-KG","parentLocale":"ru"});
 IntlMessageFormat.__addLocaleData({"locale":"ru-KZ","parentLocale":"ru"});
 IntlMessageFormat.__addLocaleData({"locale":"ru-MD","parentLocale":"ru"});
 IntlMessageFormat.__addLocaleData({"locale":"ru-UA","parentLocale":"ru"});
 
-IntlMessageFormat.__addLocaleData({"locale":"rw","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"rw","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"rwk","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"rwk","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sah","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sah","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"saq","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"saq","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sbp","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sbp","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sdh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sc","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==11||n==8||n==80||n==800?"many":"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"se","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"scn","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return n==11||n==8||n==80||n==800?"many":"other";return n==1&&v0?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"sd","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"sdh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"se","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"se-FI","parentLocale":"se"});
 IntlMessageFormat.__addLocaleData({"locale":"se-SE","parentLocale":"se"});
 
-IntlMessageFormat.__addLocaleData({"locale":"seh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"seh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ses","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ses","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sg","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sg","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sh","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sh","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"shi","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return n>=0&&n<=1?"one":t0&&n>=2&&n<=10?"few":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"shi-Latn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"shi","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return n>=0&&n<=1?"one":t0&&n>=2&&n<=10?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"shi-Latn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"shi-Tfng","parentLocale":"shi"});
 
-IntlMessageFormat.__addLocaleData({"locale":"si","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"";if(ord)return"other";return n==0||n==1||i==0&&f==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"si","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"";if(ord)return"other";return n==0||n==1||i==0&&f==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sk","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1];if(ord)return"other";return n==1&&v0?"one":i>=2&&i<=4&&v0?"few":!v0?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1];if(ord)return"other";return n==1&&v0?"one":i>=2&&i<=4&&v0?"few":!v0?"many":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sl","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i100=i.slice(-2);if(ord)return"other";return v0&&i100==1?"one":v0&&i100==2?"two":v0&&(i100==3||i100==4)||!v0?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sl","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],i100=i.slice(-2);if(ord)return"other";return v0&&i100==1?"one":v0&&i100==2?"two":v0&&(i100==3||i100==4)||!v0?"few":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sma","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sma","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"smi","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"smi","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"smj","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"smj","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"smn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"smn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sms","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sms","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":n==2?"two":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"so","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"so","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"so-DJ","parentLocale":"so"});
 IntlMessageFormat.__addLocaleData({"locale":"so-ET","parentLocale":"so"});
 IntlMessageFormat.__addLocaleData({"locale":"so-KE","parentLocale":"so"});
 
-IntlMessageFormat.__addLocaleData({"locale":"sq","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":n10==4&&n100!=14?"many":"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sq","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return n==1?"one":n10==4&&n100!=14?"many":"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"sq-MK","parentLocale":"sq"});
 IntlMessageFormat.__addLocaleData({"locale":"sq-XK","parentLocale":"sq"});
 
-IntlMessageFormat.__addLocaleData({"locale":"sr","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sr","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),i100=i.slice(-2),f10=f.slice(-1),f100=f.slice(-2);if(ord)return"other";return v0&&i10==1&&i100!=11||f10==1&&f100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)||f10>=2&&f10<=4&&(f100<12||f100>14)?"few":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Cyrl","parentLocale":"sr"});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Cyrl-BA","parentLocale":"sr-Cyrl"});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Cyrl-ME","parentLocale":"sr-Cyrl"});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Cyrl-XK","parentLocale":"sr-Cyrl"});
-IntlMessageFormat.__addLocaleData({"locale":"sr-Latn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sr-Latn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Latn-BA","parentLocale":"sr-Latn"});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Latn-ME","parentLocale":"sr-Latn"});
 IntlMessageFormat.__addLocaleData({"locale":"sr-Latn-XK","parentLocale":"sr-Latn"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ss","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ss","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ssy","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ssy","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"st","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"st","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"sv","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return(n10==1||n10==2)&&n100!=11&&n100!=12?"one":"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sv","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2);if(ord)return(n10==1||n10==2)&&n100!=11&&n100!=12?"one":"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"sv-AX","parentLocale":"sv"});
 IntlMessageFormat.__addLocaleData({"locale":"sv-FI","parentLocale":"sv"});
 
-IntlMessageFormat.__addLocaleData({"locale":"sw","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"sw","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"sw-CD","parentLocale":"sw"});
 IntlMessageFormat.__addLocaleData({"locale":"sw-KE","parentLocale":"sw"});
 IntlMessageFormat.__addLocaleData({"locale":"sw-UG","parentLocale":"sw"});
 
-IntlMessageFormat.__addLocaleData({"locale":"syr","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"syr","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ta","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ta","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ta-LK","parentLocale":"ta"});
 IntlMessageFormat.__addLocaleData({"locale":"ta-MY","parentLocale":"ta"});
 IntlMessageFormat.__addLocaleData({"locale":"ta-SG","parentLocale":"ta"});
 
-IntlMessageFormat.__addLocaleData({"locale":"te","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"te","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"teo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"teo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"teo-KE","parentLocale":"teo"});
 
-IntlMessageFormat.__addLocaleData({"locale":"th","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tg","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ti","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"th","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"ti","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ti-ER","parentLocale":"ti"});
 
-IntlMessageFormat.__addLocaleData({"locale":"tig","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tig","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"tk","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return n10==6||n10==9||n==10?"few":"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"tl","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),f10=f.slice(-1);if(ord)return n==1?"one":"other";return v0&&(i==1||i==2||i==3)||v0&&i10!=4&&i10!=6&&i10!=9||!v0&&f10!=4&&f10!=6&&f10!=9?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tl","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],f=s[1]||"",v0=!s[1],i10=i.slice(-1),f10=f.slice(-1);if(ord)return n==1?"one":"other";return v0&&(i==1||i==2||i==3)||v0&&i10!=4&&i10!=6&&i10!=9||!v0&&f10!=4&&f10!=6&&f10!=9?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"tn","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tn","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"to","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"to","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"tr","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tr","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"tr-CY","parentLocale":"tr"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ts","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ts","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"twq","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tt","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"tzm","pluralRuleFunction":function(n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return n==0||n==1||t0&&n>=11&&n<=99?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"twq","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ug","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tzm","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n;if(ord)return"other";return n==0||n==1||t0&&n>=11&&n<=99?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"uk","pluralRuleFunction":function(n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),i10=i.slice(-1),i100=i.slice(-2);if(ord)return n10==3&&n100!=13?"few":"other";return v0&&i10==1&&i100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i10==0||v0&&(i10>=5&&i10<=9)||v0&&(i100>=11&&i100<=14)?"many":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ug","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"ur","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"uk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),i=s[0],v0=!s[1],t0=Number(s[0])==n,n10=t0&&s[0].slice(-1),n100=t0&&s[0].slice(-2),i10=i.slice(-1),i100=i.slice(-2);if(ord)return n10==3&&n100!=13?"few":"other";return v0&&i10==1&&i100!=11?"one":v0&&(i10>=2&&i10<=4)&&(i100<12||i100>14)?"few":v0&&i10==0||v0&&(i10>=5&&i10<=9)||v0&&(i100>=11&&i100<=14)?"many":"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"ur","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"ur-IN","parentLocale":"ur"});
 
-IntlMessageFormat.__addLocaleData({"locale":"uz","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"uz-Arab","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"uz-Cyrl","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"uz","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"uz-Arab","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"uz-Cyrl","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"uz-Latn","parentLocale":"uz"});
 
-IntlMessageFormat.__addLocaleData({"locale":"vai","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
-IntlMessageFormat.__addLocaleData({"locale":"vai-Latn","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"vai","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"vai-Latn","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"vai-Vaii","parentLocale":"vai"});
 
-IntlMessageFormat.__addLocaleData({"locale":"ve","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"ve","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"vi","pluralRuleFunction":function(n,ord){if(ord)return n==1?"one":"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"vi","pluralRuleFunction":function (n,ord){if(ord)return n==1?"one":"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"vo","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"vo","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"vun","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"vun","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"wa","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"wa","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==0||n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"wae","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"wae","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"wo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"wo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"xh","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"xh","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"xog","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"xog","pluralRuleFunction":function (n,ord){if(ord)return"other";return n==1?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"yav","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yav","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"yi","pluralRuleFunction":function(n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yi","pluralRuleFunction":function (n,ord){var s=String(n).split("."),v0=!s[1];if(ord)return"other";return n==1&&v0?"one":"other"}});
 
-IntlMessageFormat.__addLocaleData({"locale":"yo","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yo","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"yo-BJ","parentLocale":"yo"});
 
-IntlMessageFormat.__addLocaleData({"locale":"zgh","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yue","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yue-Hans","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"yue-Hant","parentLocale":"yue"});
 
-IntlMessageFormat.__addLocaleData({"locale":"zh","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"zgh","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
+
+IntlMessageFormat.__addLocaleData({"locale":"zh","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hans","parentLocale":"zh"});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hans-HK","parentLocale":"zh-Hans"});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hans-MO","parentLocale":"zh-Hans"});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hans-SG","parentLocale":"zh-Hans"});
-IntlMessageFormat.__addLocaleData({"locale":"zh-Hant","pluralRuleFunction":function(n,ord){if(ord)return"other";return"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"zh-Hant","pluralRuleFunction":function (n,ord){if(ord)return"other";return"other"}});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hant-HK","parentLocale":"zh-Hant"});
 IntlMessageFormat.__addLocaleData({"locale":"zh-Hant-MO","parentLocale":"zh-Hant-HK"});
 
-IntlMessageFormat.__addLocaleData({"locale":"zu","pluralRuleFunction":function(n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"zu","pluralRuleFunction":function (n,ord){if(ord)return"other";return n>=0&&n<=1?"one":"other"}});
 
 //# sourceMappingURL=intl-messageformat-with-locales.js.map
