@@ -1,1 +1,1 @@
-IntlMessageFormat.__addLocaleData({"locale":"tk","pluralRuleFunction":function(n,ord){if(ord)return"other";return n==1?"one":"other"}});
+IntlMessageFormat.__addLocaleData({"locale":"tk","pluralRuleFunction":function (n,ord){var s=String(n).split("."),t0=Number(s[0])==n,n10=t0&&s[0].slice(-1);if(ord)return n10==6||n10==9||n==10?"few":"other";return n==1?"one":"other"}});
