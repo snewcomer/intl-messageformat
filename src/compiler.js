@@ -6,6 +6,8 @@ See the accompanying LICENSE file for terms.
 
 /* jslint esnext: true */
 
+import * as compactFormat from 'cldr-compact-number';
+
 export default Compiler;
 
 function Compiler(locales, formats, pluralFn) {
@@ -92,6 +94,14 @@ Compiler.prototype.compileArgument = function (element) {
             return {
                 id    : element.id,
                 format: new Intl.NumberFormat(locales, options).format
+            };
+
+        case 'shortNumberFormat':
+            options = formats.shortNumber[format.style];
+            var shortNumberInstance = new ShortNumberFormat(locales, options);
+            return {
+                id    : element.id,
+                format: shortNumberInstance.format.bind(shortNumberInstance)
             };
 
         case 'dateFormat':
@@ -203,4 +213,14 @@ function SelectFormat(id, options) {
 SelectFormat.prototype.getOption = function (value) {
     var options = this.options;
     return options[value] || options.other;
+};
+
+function ShortNumberFormat(locales, options) {
+    this.__locales__    = locales;
+    this.__options__    = options;
+    this.__localeData__ = IntlMessageFormat.__localeData__;
+}
+
+ShortNumberFormat.prototype.format = function (value, locale) {
+  return compactFormat(value, this.__locales__, this.__localeData__, this.__options__);
 };

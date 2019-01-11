@@ -403,3 +403,129 @@ describe('IntlMessageFormat', function () {
         });
     });
 });
+
+describe('ShortNumberFormat', function () {
+
+  describe('and short number formatting', function () {
+      var msg = '' +
+          'I have {numPeople, shortNumber}';
+
+      var msgFmt = new IntlMessageFormat(msg, 'en-US');
+
+      it('should not format 0', function () {
+          var m = msgFmt.format({
+              numPeople: 0
+          });
+
+          expect(m).to.equal('I have 0');
+      });
+
+      it('should not format < 1000', function () {
+          var m = msgFmt.format({
+              numPeople: 999
+          });
+
+          expect(m).to.equal('I have 999');
+      });
+
+      it('should format 1000', function () {
+          var m = msgFmt.format({
+              numPeople: 1000
+          });
+
+          expect(m).to.equal('I have 1K');
+      });
+
+      it('should format 19000', function () {
+          var m = msgFmt.format({
+              numPeople: 19000
+          });
+
+          expect(m).to.equal('I have 19K');
+      });
+
+      it('should format -1000', function () {
+          var m = msgFmt.format({
+              numPeople: -1000
+          });
+
+          expect(m).to.equal('I have -1K');
+      });
+
+      it('should format 1501', function () {
+          var m = msgFmt.format({
+              numPeople: 1501
+          });
+
+          expect(m).to.equal('I have 2K');
+      });
+
+      it('should format -1501', function () {
+          var m = msgFmt.format({
+              numPeople: -1501
+          });
+
+          expect(m).to.equal('I have -2K');
+      });
+  });
+
+  describe('and short number formatting with options', function () {
+      var msg = '' +
+          'I have {numPeople, shortNumber, twoSignificantDigits}';
+
+      var msgFmt = new IntlMessageFormat(msg, 'en-US',
+          {
+              shortNumber: {
+                  zeroSignificantDigits: {
+                      significantDigits: 0
+                  },
+                  oneSignificantDigit: {
+                      significantDigits: 1
+                  },
+                  twoSignificantDigits: {
+                      significantDigits: 2
+                  }
+              }
+          }
+      );
+
+      it('should format with one decimal place', function () {
+          var m = msgFmt.format({
+              numPeople: 19099
+          });
+
+          expect(m).to.equal('I have 19.1K');
+      });
+  });
+
+  describe('and short number formatting in chinese', function () {
+      var msg = '' +
+          'I have {numPeople, shortNumber, oneSignificantDigit}';
+
+      var msgFmt = new IntlMessageFormat(msg, 'zh',
+          {
+              shortNumber: {
+                  zeroSignificantDigits: {
+                      significantDigits: 0
+                  },
+                  oneSignificantDigit: {
+                      significantDigits: 1
+                  },
+                  twoSignificantDigits: {
+                      significantDigits: 2
+                  }
+              }
+          }
+      );
+
+      it('should format with one decimal place', function () {
+          var m = msgFmt.format({
+              numPeople: 12199099
+          });
+
+          expect(m).to.equal('I have 1,219.9万');
+      });
+  });
+});
+
+

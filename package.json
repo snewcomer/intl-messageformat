@@ -20,11 +20,11 @@
     "Anthony Pipkin <a.pipkin@yahoo.com>"
   ],
   "bugs": {
-    "url": "https://github.com/yahoo/intl-messageformat/issues"
+    "url": "https://github.com/ember-intl/intl-messageformat/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:yahoo/intl-messageformat.git"
+    "url": "http://github.com/ember-intl/intl-messageformat.git"
   },
   "main": "index.js",
   "jsnext:main": "src/main.js",
@@ -33,7 +33,8 @@
     "./lib/locales.js": false
   },
   "dependencies": {
-    "@ember-intl/intl-messageformat-parser": "1.5.0"
+    "@ember-intl/intl-messageformat-parser": "~1.5.0",
+    "cldr-compact-number": "~0.1.1"
   },
   "devDependencies": {
     "@ember-intl/grunt-extract-cldr-data": "^5.0.0",
@@ -62,7 +63,7 @@
     "travis": "istanbul cover -x lib/locales.js -- _mocha tests/runner.js --reporter spec && tests/saucelabs.sh",
     "prepublish": "grunt"
   },
-  "homepage": "https://github.com/yahoo/intl-messageformat",
+  "homepage": "https://github.com/ember-intl/intl-messageformat",
   "directories": {
     "test": "tests"
   },
